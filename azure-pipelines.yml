@@ -64,4 +64,4 @@ steps:
       azureSubscription: 'AzurePipelineConnection'
       appType: 'webApp'
       WebAppName: 'githubci-web-mayhashah'
-      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+      packageForLinux: '$(build.artifactstagingdirectory)/**/*.zip'
