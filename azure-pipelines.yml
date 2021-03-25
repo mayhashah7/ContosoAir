@@ -57,3 +57,11 @@ steps:
       csmParametersFileLink: 'https://raw.githubusercontent.com/mayhashah7/ContosoAir/master/deployment/azuredeploy.parameters.json'
       overrideParameters: '-p_environment mayhashah'
       deploymentMode: 'Incremental'
+      
+  - task: AzureRmWebAppDeployment@4
+    inputs:
+      ConnectionType: 'AzureRM'
+      azureSubscription: 'AzurePipelineConnection'
+      appType: 'webApp'
+      WebAppName: 'githubci-web-mayhashah'
+      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
