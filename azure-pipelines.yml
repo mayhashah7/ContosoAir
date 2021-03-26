@@ -9,6 +9,6 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
+stages:
 - template: build.yml
 - template: release.yml
