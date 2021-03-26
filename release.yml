@@ -2,6 +2,8 @@ stages:
 - stage: Deploy
   jobs:
   - job: Deploy
+    pool:
+      vmImage: 'Ubuntu-16.04'
     steps:
      - task: AzureResourceManagerTemplateDeployment@3
     inputs:
