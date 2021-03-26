@@ -1,5 +1,3 @@
-# Release State
-
 stages:
 - stage: Deploy
   jobs:
