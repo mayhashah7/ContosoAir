@@ -7,8 +7,8 @@ stages:
       vmImage: 'Ubuntu-16.04'
     
     steps:
-     - task: AzureResourceManagerTemplateDeployment@3
-    inputs:
+    - task: AzureResourceManagerTemplateDeployment@3
+      inputs:
       deploymentScope: 'Resource Group'
       azureResourceManagerConnection: 'AzurePipelineConnection'
       subscriptionId: '2ea029b5-e345-4844-a5a8-15dadf4e985f'
@@ -21,8 +21,8 @@ stages:
       overrideParameters: '-p_environment mayhashah'
       deploymentMode: 'Incremental'
       
-  - task: AzureRmWebAppDeployment@4
-    inputs:
+    - task: AzureRmWebAppDeployment@4
+      inputs:
       ConnectionType: 'AzureRM'
       azureSubscription: 'AzurePipelineConnection'
       appType: 'webApp'
