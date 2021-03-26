@@ -1,0 +1,6 @@
+# Build Stage
+
+stages:
+- stage: Build
+  jobs:
+  - job: Build
