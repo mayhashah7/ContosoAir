@@ -6,6 +6,7 @@ stages:
     pool:
       vmImage: 'Ubuntu-16.04'
     
+    steps:
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
