@@ -2,8 +2,10 @@ stages:
 - stage: Build
   jobs:
   - job: Build
+      
     pool:
-      vmImage: 'Ubuntu-16.04'
+      name: 'Ubuntu-16.04'
+
     steps:
     - task: Npm@1
       inputs:
@@ -14,11 +16,13 @@ stages:
         npm test
       displayName: 'Run unit tests'
       continueOnError: true
+
     - task: PublishTestResults@2
       displayName: 'Publish Test Results'
       condition: succeededOrFailed()
       inputs:
         testResultsFiles: $(System.DefaultWorkingDirectory)/test-report.xml
+    
     - task: PublishCodeCoverageResults@1
       displayName: 'Publish Code Coverage'
       condition: 'in(variables[''Agent.JobStatus''], ''Succeeded'')'
@@ -26,16 +30,19 @@ stages:
         codeCoverageTool: Cobertura
         summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/*coverage.xml'
         reportDirectory: $(System.DefaultWorkingDirectory)/coverage
+    
     - task: ArchiveFiles@2
       displayName: 'Archive sources'
       inputs:
         rootFolderOrFile: $(Build.SourcesDirectory)
         includeRootFolder: false
+    
     - task: CopyFiles@2
       displayName: 'Copy ARM templates'
       inputs:
         SourceFolder: deployment
         Contents: '*.json'
         TargetFolder: $(build.artifactstagingdirectory)/Templates
+    
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact: drop'
