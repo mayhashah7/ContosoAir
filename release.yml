@@ -17,7 +17,7 @@ stages:
       inputs:
         deploymentScope: 'Resource Group'
         azureResourceManagerConnection: 'AzurePipelineConnection'
-        subscriptionId: '2ea029b5-e345-4844-a5a8-15dadf4e985f'
+        subscriptionId: '961f9967-28e9-4924-992b-ad35af98451c'
         action: 'Create Or Update Resource Group'
         resourceGroupName: 'appDemo'
         location: 'East US'
