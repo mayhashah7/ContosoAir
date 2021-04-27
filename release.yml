@@ -19,7 +19,7 @@ stages:
         azureResourceManagerConnection: 'AzurePipelineConnection'
         subscriptionId: '961f9967-28e9-4924-992b-ad35af98451c'
         action: 'Create Or Update Resource Group'
-        resourceGroupName: 'appDemo'
+        resourceGroupName: 'testRun'
         location: 'East US'
         templateLocation: 'URL of the file'
         csmFileLink: 'https://raw.githubusercontent.com/mayhashah7/ContosoAir/master/deployment/azuredeploy.json'
